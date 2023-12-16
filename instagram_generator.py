@@ -5,7 +5,7 @@ import os
 # Define file paths
 image_path = "/Users/yorrickschoonheydt/Documents/Cinematen/Nieuwsblogger/Nieuwsblogger/Instagram_post_generator/assets"
 text_path = "/Users/yorrickschoonheydt/Documents/Cinematen/Nieuwsblogger/Nieuwsblogger/Instagram_post_generator/post_copy.txt"
-figma_file_path = "/Users/yorrickschoonheydt/Documents/Cinematen/Nieuwsblogger/Nieuwsblogger/Instagram_post_generator/template.fig"
+psd_file_path = "/Users/yorrickschoonheydt/Documents/Cinematen/Nieuwsblogger/Nieuwsblogger/Instagram_post_generator/template.psd"
 
 # GitHub repository details
 github_repo_url = "https://github.com/cinematenpodcast/instagram-assets.git"
@@ -26,7 +26,7 @@ def push_files_to_github():
 	# Copy the files to the repository
 	run_command(f"cp '{image_path}' .")
 	run_command(f"cp '{text_path}' .")
-	run_command(f"cp '{figma_file_path}' .")
+	run_command(f"cp '{psd_file_path}' .")
 
 	# Git add, commit, and push
 	run_command("git add .")
@@ -40,9 +40,9 @@ def construct_github_raw_urls():
 	base_url = f"https://raw.githubusercontent.com/{github_username}/{repository_name}/{branch_name}/"
 	image_url = os.path.join(base_url, os.path.basename(image_path))
 	text_url = os.path.join(base_url, os.path.basename(text_path))
-	figma_url = os.path.join(base_url, os.path.basename(figma_file_path))
+	psd_url = os.path.join(base_url, os.path.basename(psd_file_path))
 
-	return image_url, text_url, figma_url
+	return image_url, text_url, psd_url
 
 # Push files to GitHub
 push_result = push_files_to_github()
@@ -52,10 +52,10 @@ print(push_result)
 time.sleep(10)  # Adjust the time as needed
 
 # Construct and print the URLs
-image_url, text_url, figma_url = construct_github_raw_urls()
+image_url, text_url, psd_url = construct_github_raw_urls()
 print("Image URL:", image_url)
 print("Text URL:", text_url)
-print("Figma File URL:", figma_url)
+print("psd File URL:", psd_url)
 
 # Implement retry logic if URLs are not accessible
 retry_count = 0
