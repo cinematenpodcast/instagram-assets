@@ -1,24 +1,34 @@
 #!/bin/bash
 
 # Change directory to the one containing the scripts
-cd /Users/yorrickschoonheydt/Documents/Cinematen/Nieuwsblogger/Nieuwsblogger
+cd /Users/yorrickschoonheydt/Documents/Cinematen/Nieuwsblogger/Nieuwsblogger/Instagram_post_generator
 
 # Run the scripts one after another
-echo "Starting webscraper.py"
-python webscraper.py
-echo "webscraper.py finished"
+echo "Starting rename_md.py"
+python rename_md.py
+echo "rename_md.py.py finished"
 
-echo "Starting article_scraper.py"
-python article_scraper.py
-echo "article_scraper.py finished"
+echo "Starting copy_writer.py"
+python copy_writer.py
+echo "copy_writer.py finished"
 
-echo "Starting article_writer.py"
-python article_writer.py
-echo "article_writer.py finished"
+echo "Starting replace_image.py"
+python replace_image.py
+echo "replace_image.py finished"
 
-echo "Starting article_formatting.py"
-python article_formatting.py
-echo "article_formatting.py finished"
+echo "Starting Open_and_save.py"
+python open_and_save.py
+echo "Open_and_save.py finished"
+
+# Run the scripts one after another
+echo "Starting replace_text.py"
+python replace_text.py
+echo "replace_text.py finished"
+
+# Run the scripts one after another
+echo "Starting quit_photoshop.py"
+python quit_photoshop.py
+echo "quit_photoshop.py finished"
 
 # Display notification on macOS
 osascript -e 'display notification "All scripts have finished executing" with title "Notification"'
